@@ -1,15 +1,21 @@
 :root{
---bg: #0f1226;
---text: #e7e8ee;
---x: #ff6b6b;
---o: #4dd0e1;
---win: #ffe066;
-}
+    /* 調整：使用淺色背景，並增加對比度 */
+    --bg: #F4F7F9;        /* 淺灰色/近白色 (新的背景色) */
+    --text: #333333;      /* 深灰色 (文字顏色) */
+    --x: #00BFA5;         /* 亮綠色/青綠色 (X 玩家顏色) */
+    --o: #FF8A65;         /* 亮橘色/珊瑚色 (O 玩家顏色) */
+    --win: #FFD54F;       /* 亮黃色/琥珀色 (勝利顏色) */
+    }
 *{box-sizing:border-box}
 html,body{height:100%;}
 body{
- margin:0; font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
- background:var(--bg); color:var(--text); display:grid; place-items:center; padding:24px;
+    margin:0; 
+    font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    background:var(--bg); /* 使用淺色背景 */
+    color:var(--text);    /* 使用深色文字 */
+    display:grid; 
+    place-items:center; 
+    padding:24px;
 }
 .container{ width: min(720px, 96%); text-align:center; }
 h1{ margin:0 0 16px 0; font-size:24px; }
@@ -39,20 +45,36 @@ body[data-turn="o"] #turn {
     display: none; 
 }
 .board{
-display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;
-background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
+    display:grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap:12px;
+    /* 移除深色背景，改用輕微的陰影和淺邊框 */
+    background: #FFFFFF; /* 白色背景 */
+    padding:12px; 
+    border-radius:14px; 
+    width:min(560px, 92%); 
+    aspect-ratio:1/1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 增加輕微陰影 */
 }
 .cell{
-    border-radius:10px; background:linear-gradient(180deg,#121430,#0e1030); border:1px solid rgba(255,255,255,0.03);
+    border-radius:10px; 
+    /* 移除深色背景，使用白色單色背景和淺邊框 */
+    background: #FFFFFF; 
+    border: 1px solid #E0E0E0; /* 淺灰色邊框 */
     font-size:48px; 
     font-weight:800;
-    display:grid; 
+    display: grid; 
     place-items:center;
-    cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
+    cursor:pointer; 
+    user-select:none; 
+    -webkit-tap-highlight-color:transparent;
+    transition: all 0.2s ease-in-out; /* 增加過渡動畫 */
 }
     .cell.x{ color:var(--x); }
     .cell.o{ color:var(--o); }
+    .cell.x, .cell.o {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
     .cell.win{ background:var(--win); color:#000; }
 
     .scoreboard{ 
@@ -61,8 +83,9 @@ padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
     display:inline-block;
     padding: 16px 24px;
     border-radius: 12px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #FFFFFF; /* 白色背景 */
+    border: 1px solid #E0E0E0; /* 淺灰色邊框 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 .scoreboard h2{ margin-bottom:8px; font-size:18px; }
 .controls{ margin-bottom:12px; 
@@ -82,14 +105,15 @@ padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
 button{padding:8px 12px; 
     border-radius:10px; 
     border:0;
-    background:#21264a; 
-    color:var(--text); 
+    background: #4A90E2; /* 使用一個明亮的藍色作為按鈕主色 */
+    color: #FFFFFF; /* 白色文字 */
+    font-weight: 600;
     cursor:pointer; 
     transition: all 0.2s ease-out; }
 button:disabled{ opacity:.5; cursor:not-allowed; }
 button:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 button:active:not(:disabled) {
     transform: translateY(0);
