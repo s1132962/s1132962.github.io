@@ -107,6 +107,5 @@ btnReset.addEventListener('click', init);
 btnResetAll.addEventListener('click', ()=>{
     scoreX = scoreO = scoreDraw = 0;
     updateScoreboard();
-    init();
 }); 
 init();
