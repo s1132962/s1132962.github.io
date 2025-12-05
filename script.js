@@ -36,6 +36,7 @@ function init(){
     });
     turnEl.textContent = current;
     stateEl.textContent = '';
+    document.body.dataset.turn = current.toLowerCase();
     // 確保 init 時分數板也是最新的
     updateScoreboard(); 
 }
@@ -57,6 +58,7 @@ function place(idx){
 function switchTurn(){
     current = current === 'X' ? 'O' : 'X';
     turnEl.textContent = current;
+    document.body.dataset.turn = current.toLowerCase();
 }
 
 function evaluate(){
