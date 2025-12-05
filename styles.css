@@ -22,7 +22,8 @@ padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
 }
 .cell{
     border-radius:10px; background:linear-gradient(180deg,#121430,#0e1030); border:1px solid rgba(255,255,255,0.03);
-    font-size:48px; font-weight:800display:grid; place-items:center;
+    font-size:48px; font-weight:800
+    display grid; place-items:center;
     cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
     }
     .cell.x{ color:var(--x); }
